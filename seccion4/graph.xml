@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<Projects>
+    <Project_1>
+        <Name>Product X</Name>
+        <Number>1</Number>
+        <Location>Bellaire</Location>
+        <Worker_1>
+            <Ssn>123456789</Ssn>
+            <Last_name>Smith</Last_name>
+            <Hours>32.5</Hours>
+        </Worker_1>
+        <Worker_2>
+            <Ssn>435435435</Ssn>
+            <First_name>Joyce</First_name>
+            <Hours>20.0</Hours>
+        </Worker_2>
+    </Project_1>
+    <Project_2/>
+</Projects>

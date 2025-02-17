@@ -16,7 +16,7 @@ def tree_to_xml(graph: nx.DiGraph, root: str) -> str:
         children = list(graph.successors(node))
         
         if not children:
-            return ET.Element(node)  # Nodo hoja sin hijos
+            return ET.Element(node)
         
         element = ET.Element(node)
         for child in children:
@@ -29,7 +29,7 @@ def tree_to_xml(graph: nx.DiGraph, root: str) -> str:
                 element.append(tag)
             else:
                 element.append(child_element)
-        
+                
         return element
     
     root_element = build_xml_element(root)
@@ -46,8 +46,10 @@ def tree_to_xml(graph: nx.DiGraph, root: str) -> str:
 
     return f"XML guardado en graph.xml"
 
+# Abrir el archivo del grafo
 with open("graph.pkl", "rb") as f:
     G = pickle.load(f)
 
+# Ejecución del algoritmo
 xml_output = tree_to_xml(G, 'Projects')
 print(xml_output)

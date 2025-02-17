@@ -12,10 +12,10 @@ def tree_to_json(graph: nx.DiGraph, root: str) -> str:
     :return: Representación JSON del árbol
     """
     def build_tree(node):
-        children = list(graph.successors(node))  # Obtener hijos del nodo
+        children = list(graph.successors(node))
         
         if not children:
-            return node  # Nodo hoja
+            return node
         
         tree_structure = {}
         for child in children:
@@ -31,14 +31,16 @@ def tree_to_json(graph: nx.DiGraph, root: str) -> str:
         
         return tree_structure
 
-    # Guardar el XML en un archivo
+    # Guardar el JSON en un archivo
     with open('graph.json', "w", encoding="utf-8") as f:
         f.write(json.dumps({root: build_tree(root)}, indent=2))
 
     return f"JSON guardado en graph.json"
 
+# Abrir el archivo del grafo
 with open("graph.pkl", "rb") as f:
     G = pickle.load(f)
 
+# Ejecución del algoritmo
 tree_json = tree_to_json(G, 'Projects')
 print(tree_json)
